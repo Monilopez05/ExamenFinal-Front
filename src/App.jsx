@@ -2,10 +2,10 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { Outlet } from "react-router-dom/dist";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
-import Home from "./Home";
-import Detail from "./Detail";
-import Contact from "./Contact";
-import Favs from "./Favs";
+import Home from "./Routes/Home"
+import Detail from "./Routes/Detail";
+import Contact from "./Routes/Contact";
+import Favs from "./Routes/Favs";
 
 
 
