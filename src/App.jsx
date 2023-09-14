@@ -1,10 +1,16 @@
-
+import { Routes, Route, Navigate } from "react-router-dom";
 import { Outlet } from "react-router-dom/dist";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
+import Home from "./Home";
+import Detail from "./Detail";
+import Contact from "./Contact";
+import Favs from "./Favs";
+
 
 
 function App() {
+  
   return (
       <div className="App">
         <Navbar/>
