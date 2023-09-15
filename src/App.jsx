@@ -10,9 +10,10 @@ import Favs from "./Routes/Favs";
 
 
 function App() {
-  
+  const { state } = useContext(ContextGlobal);
   return (
       <div className="App">
+      <div className={state.theme ? "dark" : null}></div>
         <Navbar/>
          <Routes>
             <Route path="/" element={<Home />} />
