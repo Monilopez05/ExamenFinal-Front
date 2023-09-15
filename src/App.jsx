@@ -1,5 +1,5 @@
-import { Routes, Route, } from "react-router-dom";
 import { Outlet } from "react-router-dom/dist";
+import { Routes, Route,  Navigate} from "react-router-dom";
 import Footer from "./Components/Footer";
 import Navbar from "./Components/Navbar";
 import Home from "./Routes/Home"
@@ -16,12 +16,11 @@ function App() {
         <Navbar/>
          <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="dentistas/:id" element={<Detail />} />
+            <Route path="dentist/:id" element={<Detail />} />
             <Route path="contacto" element={<Contact />} />
             <Route path="favorito" element={<Favs />} />
-           
+            <Route path="*" element={<Navigate to="/" />} />
         </Routes>
-          <Navbar/>
           <Outlet/>
           <Footer/>
       </div>

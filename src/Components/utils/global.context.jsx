@@ -3,7 +3,7 @@ import { createContext, useEffect, useReducer } from "react";
 
 
 
-export const ContextGlobal = createContext(undefined));
+export const ContextGlobal = createContext(undefined);
 
 
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
