@@ -9,10 +9,10 @@ const Detail = () => {
  
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
   const { getDentistaPorId, handleDentistas, state } = useContext(ContextGlobal);
-
-  const themeClass = state.theme === 'dark' ? 'dark-theme' : 'light-theme';
-  const { id } = useParams();
   const [loading, setLoading] = useState(true);
+  
+  const { id } = useParams();
+  
 
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Detail = () => {
   return (
 
     <>
-      <div className={`detail-container ${themeClass}`}>
+      <div className="detail-container">
       <h1>Detail Dentist id </h1>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
@@ -32,10 +32,10 @@ const Detail = () => {
                 <div className="card-container">
                     <div className="card">
                         <div>
-                            <p>{state.denstistas.name}</p>
-                            <p>{state.denstistas.email}</p>
-                            <p>{state.denstistas.phone}</p>
-                            <p>{state.denstistas.website}</p>
+                            <p>{state.dentistas.name}</p>
+                            <p>{state.dentistas.email}</p>
+                            <p>{state.dentistas.phone}</p>
+                            <p>{state.dentistas.website}</p>
                         </div>
                     </div>
                 </div>

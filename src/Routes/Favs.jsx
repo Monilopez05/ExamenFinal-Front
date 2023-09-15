@@ -1,21 +1,21 @@
-import React,{useContext} from "react";
+import React from "react";
 import Card from "../Components/Card";
-import { useContext } from "react";
+
 
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Favs = () => {
-  const { theme } = useContext(ContextGlobal);
-  const favoritosDentistas = JSON.parse(localStorage.getItem('favoritosdDentistas')) || [];
+  
+  const favoritosDentistas = JSON.parse(localStorage.getItem("favorito")) || [];
   return (
     <>
-      <h1 className={theme === 'dark' ? 'dark-text' : 'light-text'}>Dentists Favs</h1>
-      <div className={`card-grid ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`}>
+      <h1 className>Dentists Favs</h1>
+      <div className="card-grid ">
         {/* este componente debe consumir los destacados del localStorage */}
         {/* Deberan renderizar una Card por cada uno de ellos */}
-        {favoritosDentistas.map((dentista) => (
-          <Card key={dentista.id} dentist={dentista} />
+        {favoritosDentistas.map((item) => (
+          <Card key={item.id} {...item}/>
         ))}
       
       </div>

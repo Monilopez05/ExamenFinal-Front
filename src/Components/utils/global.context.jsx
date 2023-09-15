@@ -3,12 +3,12 @@ import { createContext, useEffect, useReducer } from "react";
 
 
 
-export const ContextGlobal = createContext();
+export const ContextGlobal = createContext(undefined));
 
 
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
   const initialState = {
-    theme:"light",
+    theme:"false",
     listarDentistas: {},
     dentistas: {},
     favoritos: [],
@@ -18,7 +18,7 @@ export const ContextGlobal = createContext();
         case "setCambiarColor":
             return {
             ...state,
-            theme: state.theme === 'light' ? 'dark' : 'light',
+            theme: !state.theme
         };
         case "setListarDestistas":
             return {
@@ -81,7 +81,8 @@ export const ContextGlobal = createContext();
 
 
   return (
-    <ContextGlobal.Provider  value={{ 
+    <ContextGlobal.Provider  
+    value={{ 
       handleTheme,
       getDentista,
       getDentistaPorId,

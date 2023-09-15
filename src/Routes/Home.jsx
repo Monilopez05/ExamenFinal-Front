@@ -1,14 +1,15 @@
-import React, {useContext, useEffect, useState} from 'react'
+import  {useContext, useEffect, useState} from 'react'
 import Card from '../Components/Card'
 import { ContextGlobal } from '../Components/utils/global.context';
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
-  const { getDentistas, handleListar, state } = useContext(ContextGlobal);
   const [loading, setLoading] = useState(true);
+  const { getDentista, handleListar, state } = useContext(ContextGlobal);
+  
   useEffect(() => {
-    getDentistas().then((datos) => {
+    getDentista().then((datos) => {
         handleListar(datos);
         setLoading(false);
     });
