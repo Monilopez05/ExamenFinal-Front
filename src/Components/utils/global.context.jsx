@@ -63,7 +63,7 @@ export const ContextGlobal = createContext();
           return data;
       };
   
-      const getUsuarioPorId = async (id) => {
+      const getDentistaPorId = async (id) => {
           const res = await fetch( `https://jsonplaceholder.typicode.com/users/${id}`);
           const data = await res.json();
           return data;
@@ -84,7 +84,7 @@ export const ContextGlobal = createContext();
     <ContextGlobal.Provider  value={{ 
       handleTheme,
       getDentista,
-      getUsuarioPorId,
+      getDentistaPorId,
       handleListar,
       handleDentistas,
       handleFavoritos,

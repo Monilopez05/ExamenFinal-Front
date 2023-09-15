@@ -1,6 +1,6 @@
-import { useContext} from "react";
+import {  useContext, useEffect, useState} from "react";
 import { ContextGlobal } from "../Components/utils/global.context";
-import { useParams, useEffect, useState } from "react-router-dom";
+import {useParams } from "react-router-dom";
 
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
@@ -8,15 +8,15 @@ import { useParams, useEffect, useState } from "react-router-dom";
 const Detail = () => {
  
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
-  const { getUsuarioPorId, handleDentistas, state } = useContext(ContextGlobal);
+  const { getDentistaPorId, handleDentistas, state } = useContext(ContextGlobal);
 
   const themeClass = state.theme === 'dark' ? 'dark-theme' : 'light-theme';
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
 
-  
+
   useEffect(() => {
-      getUsuarioPorId(id).then((datos) => {
+      getDentistaPorId(id).then((datos) => {
           handleDentistas(datos);
           setLoading(false);
       });
