@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, } from "react-router-dom";
 import { ContextGlobal } from "./utils/global.context";
 import doctorImg from "../images/doctor.jpg"
 
@@ -29,7 +29,7 @@ const Card = ({ name, username, id }) => {
 
         {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
 
-        <Link to={`/dentist/${id}`}>
+        <Link to={`/dentistas/${id}`}>
             <div className="divImgDoctor">
                 <img
                     className="imgDoctor" src={doctorImg} alt="imagen de un doctor"
