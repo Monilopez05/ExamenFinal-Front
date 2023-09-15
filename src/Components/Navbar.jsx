@@ -15,13 +15,14 @@ const Navbar = () => {
       <div className='ul-button'> 
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/Home">Home</Link>
           </li>
           <li>
-          <Link to="/">Home</Link>
+          <Link to="contacto">Contact</Link>
+          
           </li>
           <li>
-          <Link to="/">Home</Link>
+          <Link to="/favorito">Fav</Link>
           </li>
         </ul>
 

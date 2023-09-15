@@ -3,7 +3,7 @@ import { createContext, useEffect, useReducer } from "react";
 
 
 
-export const ContextGlobal = createContext(undefined);
+export const ContextGlobal = createContext();
 
 
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
@@ -57,16 +57,14 @@ export const ContextGlobal = createContext(undefined);
           dispatch({ type: "setFavoritos", payload: datos });
       };
   
-      const getUsuarios = async () => {
+      const getDentista = async () => {
           const res = await fetch("https://jsonplaceholder.typicode.com/users");
           const data = await res.json();
           return data;
       };
   
       const getUsuarioPorId = async (id) => {
-          const res = await fetch(
-              `https://jsonplaceholder.typicode.com/users/${id}`
-          );
+          const res = await fetch( `https://jsonplaceholder.typicode.com/users/${id}`);
           const data = await res.json();
           return data;
       };
@@ -85,7 +83,7 @@ export const ContextGlobal = createContext(undefined);
   return (
     <ContextGlobal.Provider  value={{ 
       handleTheme,
-      getUsuarios,
+      getDentista,
       getUsuarioPorId,
       handleListar,
       handleDentistas,

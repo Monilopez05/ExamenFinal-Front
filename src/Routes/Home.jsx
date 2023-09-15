@@ -12,7 +12,7 @@ const Home = () => {
         handleListar(datos);
         setLoading(false);
     });
-}, []);
+   }, []);
 
 
   return (
@@ -21,9 +21,9 @@ const Home = () => {
       <div className='card-grid'>
         {/* Aqui deberias renderizar las cards */}
         {!loading &&
-                        state.listarDentistas.map((item) => (
-                            <Card key={item.id} {...item} />
-                        ))}
+         state.listarDentistas.map((item) => (
+         <Card key={item.id} {...item} />
+          ))}
       </div>
     </main>
   )

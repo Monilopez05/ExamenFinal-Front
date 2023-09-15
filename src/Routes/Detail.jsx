@@ -13,6 +13,8 @@ const Detail = () => {
   const themeClass = state.theme === 'dark' ? 'dark-theme' : 'light-theme';
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
+
+  
   useEffect(() => {
       getUsuarioPorId(id).then((datos) => {
           handleDentistas(datos);
