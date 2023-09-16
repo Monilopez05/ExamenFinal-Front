@@ -19,7 +19,7 @@ const handlerTheme = ()=>{
      <nav className={state.theme === 'light' ? 'navbar-light' : 'navbar-dark'}>
       <h2> DH Odontolog@s</h2>
       <div className='ul-button'> 
-        <ul>
+        <ul className='ul-nav'>
           <li>
             <Link to="/">Home</Link>
           </li>
