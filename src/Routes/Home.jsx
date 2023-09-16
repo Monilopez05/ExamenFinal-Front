@@ -1,30 +1,28 @@
-import  {useContext, useEffect, useState} from 'react'
+import React, {useContext, useEffect,} from 'react'
 import Card from '../Components/Card'
 import { ContextGlobal } from '../Components/utils/global.context';
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
-  const [loading, setLoading] = useState(true);
-  const { getDentista, handleListar, state } = useContext(ContextGlobal);
   
-  useEffect(() => {
-    getDentista().then((datos) => {
-        handleListar(datos);
-        setLoading(false);
-    });
-   }, []);
+  const { state, dataApi } = useContext(ContextGlobal)
 
+  const getDentist = async () => {
+    await dataApi("https://jsonplaceholder.typicode.com/users");
+  }
+  useEffect(() => {
+    getDentist();
+  },[state.data]);
 
   return (
-    <main className="" >
+    <main className= {state.theme} >
       <h1>Home</h1>
       <div className='card-grid'>
         {/* Aqui deberias renderizar las cards */}
-        {!loading &&
-         state.listarDentistas.map((item) => (
-         <Card key={item.id} {...item} />
-          ))}
+        {Array.isArray(state.data) && state.data.map((dentist) => (
+          <Card key= {dentist.id} data={dentist} />
+        ))}
       </div>
     </main>
   )

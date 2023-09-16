@@ -1,4 +1,5 @@
-import {  useContext, useEffect, useState} from "react";
+import React from 'react'
+import {  useContext, useEffect,} from "react";
 import { ContextGlobal } from "../Components/utils/global.context";
 import {useParams } from "react-router-dom";
 
@@ -8,38 +9,38 @@ import {useParams } from "react-router-dom";
 const Detail = () => {
  
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
-  const { getDentistaPorId, handleDentistas, state } = useContext(ContextGlobal);
-  const [loading, setLoading] = useState(true);
+  const params = useParams();
+  const { state, dataApi } = useContext(ContextGlobal)
   
-  const { id } = useParams();
   
-
+  const getDentist = async () => {
+    await dataApi(`https://jsonplaceholder.typicode.com/users/${params.id}`);
+  }
 
   useEffect(() => {
-      getDentistaPorId(id).then((datos) => {
-          handleDentistas(datos);
-          setLoading(false);
-      });
-  }, []);
+    getDentist()
+
+  }, [params])
   return (
 
     <>
       <div className="detail-container">
-      <h1>Detail Dentist id </h1>
+      <h1>Detail Dentist id  {state.data.id}</h1>
       {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
       {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
-      {!loading && (
+      
                 <div className="card-container">
                     <div className="card">
                         <div>
-                            <p>{state.dentistas.name}</p>
-                            <p>{state.dentistas.email}</p>
-                            <p>{state.dentistas.phone}</p>
-                            <p>{state.dentistas.website}</p>
+                        
+                            <p>Nombre:{state.data.name}</p>
+                            <p>Email:{state.data.email}</p>
+                            <p>Telefono:{state.data.phone}</p>
+                            <p>SitioWeb:{state.data.website}</p>
                         </div>
                     </div>
                 </div>
-            )}
+            
       </div>
     </>
   )
